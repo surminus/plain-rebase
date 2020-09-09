@@ -11,6 +11,7 @@ jobs:
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/rebase')
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.event }}
       - name: Checkout the latest code
         uses: actions/checkout@main
         with:
