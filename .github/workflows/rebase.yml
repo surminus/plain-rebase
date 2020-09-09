@@ -11,10 +11,9 @@ jobs:
     if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '/rebase')
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event }}
       - name: Checkout the latest code
         uses: actions/checkout@main
         with:
-          ref: ${{ github.event.pull_request.sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Rebase with master
         run: git rebase origin/master
