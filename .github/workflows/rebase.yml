@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Checkout the latest code
         uses: actions/checkout@main
-        ref: github.ref
+        with:
+          ref: github.ref
       - name: Rebase with master
         run: git rebase origin/master
